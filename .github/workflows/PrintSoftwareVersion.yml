@@ -34,8 +34,4 @@ jobs:
           sudo apt-get install -y postgresql-client
           psql --version
 
-      - name: Print MongoDB version
-        run: |
-         sudo apt-get update
-         sudo apt-get install -y mongodb-org-tools
-         mongosh --version
+      
