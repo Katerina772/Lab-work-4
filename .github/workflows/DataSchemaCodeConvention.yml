@@ -1,0 +1,32 @@
+name: Check Data Schema Code Conventions
+
+on:
+  push:
+    branches:
+      - main
+      - laboratorywork-4
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-sql:
+    runs-on: ubuntu-latest
+    name: Lint SQL schema with SQLFluff
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install SQLFluff
+        run: |
+          pip install sqlfluff
+
+      - name: Lint Data Schema (PostgreSQL dialect)
+        run: |
+          sqlfluff lint DataSchema.sql --dialect postgres
