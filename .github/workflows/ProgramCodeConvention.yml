@@ -26,4 +26,4 @@ jobs:
 
       - name: Run ESLint check
         run: |
-          eslint 2-SoftwareDesign/2.6-GitHubActions/ProgramCode.js || exit 0
+          eslint 2-SoftwareDesign/2.6-GitHubActions/ProgramCodeModified.js || exit 0
