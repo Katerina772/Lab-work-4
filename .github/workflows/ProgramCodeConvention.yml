@@ -1,30 +1,23 @@
-name: Program Code Convention Check
+name: JavaScript Code Linter
 
 on:
   push:
     branches: [ main, laboratorywork-4 ]
-  pull_request:
-    branches: [ main, laboratorywork-4 ]
 
 jobs:
-  lint:
+  JavaScriptCodeLinter:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Code in Repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install ESLint
+      - name: Install JSON Linter Biome
         run: |
-          npm install eslint --global
-          eslint --version
+          npm install --save-dev --save-exact @biomejs/biome
 
-      - name: Run ESLint check
+      - name: Validate all JS files
         run: |
-          # Перевірка з примусовим завершенням при помилках
-          eslint 2-SoftwareDesign/2.6-GitHubActions/ProgramCode.js --max-warnings=0
+          npx @biomejs/biome check 2-SoftwareDesign/2.6-GitHubActions/ProgramCode.js
+
+
