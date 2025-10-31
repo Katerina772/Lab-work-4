@@ -26,4 +26,5 @@ jobs:
 
       - name: Run ESLint check
         run: |
-          eslint 2-SoftwareDesign/2.6-GitHubActions/ProgramCodeModified.js || exit 0
+          # Перевірка з примусовим завершенням при помилках
+          eslint 2-SoftwareDesign/2.6-GitHubActions/ProgramCode.js --max-warnings=0
