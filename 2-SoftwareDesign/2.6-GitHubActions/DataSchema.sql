@@ -1,6 +1,3 @@
-
--- Фізична схема бази даних для системи рекомендацій сну та підбору житла
-
 CREATE TABLE "Users" (
     "User_ID" SERIAL PRIMARY KEY,
     "Username" VARCHAR(50) NOT NULL,
