@@ -33,11 +33,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y postgresql-client
           psql --version
-      - name: Print MySQL Version
+      - name: Print MongoDB version
         run: |
-          mysql -V
-      - name: |
-          Print MongoDB Version
-          mongod --version
+          sudo apt-get update
+          sudo apt-get install -y mongodb-org-shell
+          mongosh --version || mongo --version
 
       
